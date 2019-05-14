@@ -1,5 +1,4 @@
 var s;
-var scl= 20;
 
 var food;
 
@@ -7,7 +6,9 @@ function setup(){
      createCanvas(600,600);
     s = new Snake();
     frameRate(10);
-    food = pickLocation();
+    
+    pickLocation();
+
  }
 
 function pickLocation(){
@@ -15,25 +16,29 @@ function pickLocation(){
     var rows = floor(height/scl);
     food = createVector(floor(random(cols)), floor(random(rows)));
     food.mult(scl);
-
+   // return food;
 }
 
  function draw(){
      background(51);
-     s.update();
-     s.show();
-     s.death();
 
      if (s.eat(food)) {
         pickLocation(); 
      }
+     s.death();
+     s.update();
+     s.show();
+     
+     console.log(s);
+
+    
 
      fill(255, 0, 100);
      rect(food.x, food.y, scl, scl);
  }
 
 function keyPressed(){
-    if (key == UP_ARROW){
+    if (keyCode == UP_ARROW){
         s.dir(0, -1);
     }
      else if (keyCode == DOWN_ARROW) {

@@ -1,3 +1,6 @@
+var scl= 20;
+
+
 function Snake(){
     this.x = 0;
     this.y = 0;
@@ -36,8 +39,8 @@ this.eat = function(pos) {
 
     this.update = function(){
         
-        if (this.total == this.tail.length){
-        for(var i =  0; i < this.total-1; i++) {
+       if (this.total == this.tail.length){
+        for(var i =  0; i < this.tail.length-1-1;i++) {
             this.tail[i] = this.tail[i+1];
         }
     }
@@ -46,17 +49,15 @@ this.eat = function(pos) {
         this.x = this.x + this.xspeed*scl;
        this.y = this.y + this.yspeed*scl;
 
-       this.x = constrain(this.x, width-scl);
+       this.x = constrain(this.x,0, width-scl);
        this.y = constrain(this.y,0, height-scl);
    }
 this.show = function(){
     fill(255);
-    for(var i =  0; i < this.total-1; i++) {
+    for(var i =  0; i < this.tail.lengt; i++) {
         rect(this.tail[i].x, this.tail[i].y, scl ,scl);
     }    
-        rect(this.x, this.y, scl, scl);
+    
+    rect(this.x, this.y, scl, scl);
     }
-
-
-
-    }
+}
