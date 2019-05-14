@@ -22,6 +22,7 @@ function pickLocation(){
      background(51);
      s.update();
      s.show();
+     s.death();
 
      if (s.eat(food)) {
         pickLocation(); 
