@@ -19,19 +19,21 @@ function pickLocation(){
    // return food;
 }
 
+function mousePresed() {
+    s.total++;
+}
+
  function draw(){
      background(51);
 
      if (s.eat(food)) {
         pickLocation(); 
      }
-     s.death();
+  //   s.death();
      s.update();
      s.show();
      
-     console.log(s);
-
-    
+     //console.log(s);
 
      fill(255, 0, 100);
      rect(food.x, food.y, scl, scl);
